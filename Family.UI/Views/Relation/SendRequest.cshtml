@@ -1,0 +1,38 @@
+﻿@using Family.DAL.Entities
+@using Family.DAL.Enums
+@model List<Person>
+@{
+    ViewBag.Title = "SendRequest";
+    Layout = "~/Views/Shared/LayoutPage.cshtml";
+}
+
+<table class="table">
+    <tr>
+        <th>Ad Soyad</th>
+        <th>İlişki Seç</th>
+        <th>Gönder</th>
+    </tr>
+    @foreach (Person item in Model)
+    {
+        <form method="post" action="/Relation/SendRequest">
+            <tr>
+                <td>
+                    <input type="hidden" value="@item.Id" name="receiverId" />
+                    @item.FirstName @item.LastName
+                </td>
+                <td>
+                    <select name="relation">
+                        <option disabled selected value="-1">Bir İlişki Seçiniz..</option>
+                        @foreach (RelationEnum type in (RelationEnum[])Enum.GetValues(typeof(RelationEnum)))
+                        {
+                            <option value="@type">@type</option>
+                        }
+                    </select>
+                </td>
+                <td>
+                    <input type="submit" class="btn btn-success" value="Gönder" />
+                </td>
+            </tr>
+        </form>
+    }
+</table>

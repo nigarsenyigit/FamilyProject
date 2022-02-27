@@ -1,0 +1,58 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <title>Üye Ol</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container">
+
+    <form method="post" action="/Session/SignUp">
+        <div class="mb-3">
+            <label for="firstNameInput" class="form-label">Ad</label>
+            <input type="text" class="form-control" id="firstNameInput" name="FirstName">
+        </div>
+        <div class="mb-3">
+            <label for="lastNameInput" class="form-label">Soyad</label>
+            <input type="text" class="form-control" id="lastNameInput" name="LastName">
+        </div>
+        <div class="mb-3">
+            <label for="birthDayInput" class="form-label">Doğum Tarihi</label>
+            <input type="datetime-local" class="form-control" id="birthDayInput" name="BirthOfDay">
+        </div>
+        <div class="mb-3">
+            <label for="usernameInput" class="form-label">Kullanıcı Adı</label>
+            <input type="text" class="form-control" id="usernameInput" name="UserName">
+        </div>
+        <div class="mb-3">
+            <label for="passwordInput" class="form-label">Şifre</label>
+            <input type="password" class="form-control" id="passwordInput" name="Password">
+        </div>
+        <div class="mb-3">
+            <label for="rePasswordInput" class="form-label">Şifre Tekrar</label>
+            <input type="password" class="form-control" id="rePasswordInput" name="rePassword">
+        </div>
+        <div class="mb-3">
+            <label for="Gender" class="form-label">Cinsiyet</label><br />
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="Gender" id="Gender" value="0">
+                <label class="form-check-label" for="Gender">Erkek</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="Gender" id="Gender" value="1">
+                <label class="form-check-label" for="Gender">Kadın</label>
+            </div>
+        </div>
+        <div class="mb-3">
+            <input type="submit" class="form-control btn btn-success" id="submitButton">
+        </div>
+    </form>
+
+</body>
+</html>

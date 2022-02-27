@@ -1,0 +1,35 @@
+﻿@using Family.DAL.Entities
+@using Family.DAL.Enums
+@model List<Request>
+@{
+    ViewBag.Title = "MyRequest";
+    Layout = "~/Views/Shared/LayoutPage.cshtml";
+}
+
+<table class="table">
+    <tr>
+        <td>Gönderen</td>
+        <td>İstek Tarihi</td>
+        <td>İlişki Türü</td>
+        <td>İşlem</td>
+    </tr>
+    @foreach (Request item in Model)
+    {
+        <tr>
+            <td>@item.Sender.FirstName @item.Sender.LastName</td>
+            <td>@item.RequestDate</td>
+            <td>@item.Relation</td>
+            @if (item.Response == ResponseEnum.Waiting)
+            {
+                <td>
+                    <a href="/Relation/ReturnResponse?senderId=@item.SenderId&relation=@item.Relation&response=1" class="btn btn-success">Kabul Et</a>
+                    <a href="/Relation/ReturnResponse?senderId=@item.SenderId&relation=@item.Relation&response=2" class="btn btn-danger">Reddet</a>
+                </td>
+            }
+            else
+            {
+                <td>@item.Response</td>
+            }
+        </tr>
+    }
+</table>
